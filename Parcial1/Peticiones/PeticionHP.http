@@ -1,0 +1,13 @@
+#Get para obtener todos los personajes
+GET https://hp-api.herokuapp.com/api/characters HTTP/1.1
+Accept: application/json
+User-Agent: MiClienteHTTP/1.0
+#Get para solo alumnos de Hogwarts 
+GET https://hp-api.herokuapp.com/api/characters/students HTTP/1.1
+Accept: application/json
+#Get para solo profesores 
+GET https://hp-api.herokuapp.com/api/characters/staff HTTP/1.1
+Accept: application/json
+#Get de los alumnos de la casa Gryffindor
+GET https://hp-api.herokuapp.com/api/characters/house/gryffindor HTTP/1.1
+Accept: application/json
