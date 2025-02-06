@@ -1,13 +1,33 @@
-//Hello World Express
-const express = import('express');
+const express = require('express');
 const app = express();
+const port=3000;
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname+'public/index.html');
-    res.send('Hola Mundo');
+//Middleware incorporado en express
+app.use(express.json());
+app.use(express.text());
+
+app.use('/',(req,res,next)=>{
+    console.log("Petición al server");
+    next();
+});
+app.use('/',(req,res,next)=>{
+    console.log("2da función Middleware");
+    next();
 });
 
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
+});
 
-app.listen(3000, () => {
-    console.log(`Servidor express escuchando en http://localhost:3000`);
+app.post('/', (req, res) => {
+    console.log(req.body);
+    res.send('Hello World!');
+});
+
+app.use((req, res) => {
+    res.status(404).send("Error 404");
+});
+
+app.listen(port, () => {
+    console.log(`Servidor express escuchando en http://localhost:${port}`);
 });
