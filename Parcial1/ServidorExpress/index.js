@@ -15,13 +15,21 @@ app.use('/',(req,res,next)=>{
     next();
 });
 
-app.get('/', (req, res) => {
+app.get('/alumno', (req, res) => {
+    console.log(req.query);
     res.sendFile(__dirname + '/public/index.html');
 });
 
-app.post('/', (req, res) => {
+app.post('/alumno/carrera', (req, res) => {
     console.log(req.body);
-    res.send('Hello World!');
+    res.send('Servidor respondiendo POST')
+});
+
+app.patch('/estudiantes/:carrera', (req, res) => {
+    console.log(req.params.carrera);
+    console.log(req.query.control);
+    console.log(req.body);
+    res.send('Servidor respondiendo PATCH')
 });
 
 app.use((req, res) => {
