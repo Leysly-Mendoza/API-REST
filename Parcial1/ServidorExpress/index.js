@@ -33,17 +33,17 @@ app.post('/alumno/carrera', (req, res) => {
     res.send('Servidor respondiendo POST')
 });
 
-app.post('/prefectos', (req, res) => {
+/*app.post('/prefectos', (req, res) => {
     console.log(req.body);
     res.send('Servidor respondiendo con XML')
-});
+});*/
 
-/*app.post('/prefectos',(req,res) => {
+app.post('/prefectos',(req,res) => {
     console.log(`Se recibio el archivo: ${req.file.originalname}`);
     console.log(req.body);
     console.log('Se recibio el formulario:'+JSON.stringify(req.body));
     res.json(req.body);
-   });*/
+   });
 
 
 
