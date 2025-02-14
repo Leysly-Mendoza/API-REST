@@ -1,10 +1,18 @@
 const express = require('express');
+xmlparser = require('express-xml-bodyparser');
+const multer = require('multer');
+const path = require('path');
 const app = express();
 const port=3000;
 
 //Middleware incorporado en express
 app.use(express.json());
 app.use(express.text());
+app.use(xmlparser());
+
+const folder = path.join(__dirname +'/archivosrec'); //Definir una ruta para almacenar archivos que se envian del cliente
+const upload = multer({dest:folder}); //Pasarle esa ruta a multer()
+app.use(upload.single('archivo')); 
 
 app.use('/',(req,res,next)=>{
     console.log("Petición al server");
@@ -24,6 +32,20 @@ app.post('/alumno/carrera', (req, res) => {
     console.log(req.body);
     res.send('Servidor respondiendo POST')
 });
+
+/*app.post('/prefectos', (req, res) => {
+    console.log(req.body);
+    res.send('Servidor respondiendo con XML')
+});*/
+
+app.post('/prefectos',(req,res) => {
+    console.log(`Se recibio el archivo: ${req.file.originalname}`);
+    console.log(req.body);
+    console.log('Se recibio el formulario:'+JSON.stringify(req.body));
+    res.json(req.body);
+   });
+
+
 
 app.patch('/estudiantes/:carrera', (req, res) => {
     console.log(req.params.carrera);
