@@ -4,6 +4,8 @@ const xmlparser = require('express-xml-bodyparser');
 const routerUsuario = require('./routes/usuarioRouter.js')
 const multer = require('multer');
 const path = require('path');
+//const cors = require('cors');
+//const port=3000;
 
 const app = express();
 
