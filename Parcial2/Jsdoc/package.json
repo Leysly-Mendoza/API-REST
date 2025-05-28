@@ -1,0 +1,20 @@
+{
+  "name": "Lydoc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test ./test",
+    "doc": "jsdoc -c jsdoc.json --readme README.md"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "jsdoc": "^4.0.4",
+    "taffydb": "^2.7.3"
+  },
+  "devDependencies": {
+    "minami": "^1.2.3"
+  }
+}

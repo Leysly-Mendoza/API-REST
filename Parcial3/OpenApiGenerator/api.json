@@ -1,0 +1,70 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API Personajes",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000/"
+      }
+    ],
+    "paths": {
+      "/personajes": {
+        "get": {
+          "summary": "Obtener personajes",
+          "description": "Devuelve un arreglo de personajes",
+          "responses": {
+            "200": {
+              "description": "Lista de personajes",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "personajes": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "nombre": {
+                              "type": "string"
+                            },
+                            "casa": {
+                              "type": "string"
+                            },
+                            "descripcion": {
+                              "type": "string"
+                            },
+                            "rol": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x-codeSamples": [
+            {
+              "lang": "JavaScript",
+              "label": "Fetch usando JavaScript",
+              "source": "fetch('http://localhost:3000/personajes')\n  .then(response => response.json())\n  .then(data => console.log(data))\n  .catch(error => console.error('Error:', error));"
+            },
+            {
+              "lang": "curl",
+              "label": "Request con cURL",
+              "source": "curl -X GET \"http://localhost:3000/personajes\" -H \"accept: application/json\""
+            }
+          ]
+        }
+      }
+    }
+  }
+  
